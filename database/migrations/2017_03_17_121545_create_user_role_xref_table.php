@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostTable extends Migration
+class CreateUserRoleXrefTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreatePostTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title');
-            $table->text('content');
+        Schema::create('user_role_xref', function (Blueprint $table) {
+            $table->integer('user_id');
+            $table->integer('role_id');
             $table->timestamps();
+            $table->primary(['user_id', 'role_id']);
         });
     }
 
@@ -28,6 +28,6 @@ class CreatePostTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('roles');
     }
 }

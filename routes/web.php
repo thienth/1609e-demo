@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-	thienth_helper();
-	die;
+	
     return view('welcome');
 });
+
+Route::get('/1609', "Client\\HomeController@index");
