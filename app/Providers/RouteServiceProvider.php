@@ -39,6 +39,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        // 2017/03/20 - ThienTH - update admin route
+        $this->mapAdminRoutes();
         //
     }
 
@@ -69,5 +71,19 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
+    }
+
+    /**
+    * Create new route file amin.php 
+    * @author: Thienth
+    * @date: 2017/03/20
+    * @return: void
+    */
+    protected function mapAdminRoutes()
+    {
+        Route::prefix('admin')
+             // ->middleware('api')
+             ->namespace($this->namespace)
+             ->group(base_path('routes/admin.php'));
     }
 }
