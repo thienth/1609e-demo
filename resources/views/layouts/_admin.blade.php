@@ -234,7 +234,7 @@
 	          </a>
 	          <ul class="treeview-menu">
 	            <li>
-	            	<a href="{{Asset("dashboard/categories")}}"><i class="fa fa-list"></i> List categories</a>
+	            	<a href="{{route("admin.cate.list")}}"><i class="fa fa-list"></i> List categories</a>
             	</li>
 	            <li>
 	            	<a href="{{Asset("dashboard/new-cate")}}"><i class="fa fa-plus"></i> Add new</a>
