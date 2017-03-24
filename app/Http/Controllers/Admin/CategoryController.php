@@ -32,8 +32,9 @@ class CategoryController extends Controller
     	
     	// Create new category object
     	$model = new Category();
+        $cateList = Category::all();
 
     	// return form with empty model
-    	return view("admin.category.form", ["model" => $model]);
+    	return view("admin.category.form", ["model" => $model, "cateList" => $cateList]);
     }
 }

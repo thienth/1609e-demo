@@ -19,10 +19,10 @@
 
             <div class="col-sm-10">
               <select name="" id="parent-id" class="form-control">
-                <option value="">1</option>
-                <option value="">1</option>
-                <option value="">1</option>
-                <option value="">1</option>
+                <option value="">Danh mục cha</option>
+                @foreach ($cateList as $element)
+                  <option value="{{$element->id}}">{{$element->cate_name}}</option>
+                @endforeach
               </select>
             </div>
           </div>
