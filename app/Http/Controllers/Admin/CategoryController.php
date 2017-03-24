@@ -23,18 +23,29 @@ class CategoryController extends Controller
     }
 
     /**
-	* Generate add new cate form
-	* @author: ThienTH
-	* @date: 2017/03/20
-	* @return: view
-	*/
+    * Generate add new cate form
+    * @author: ThienTH
+    * @date: 2017/03/20
+    * @return: view
+    */
     public function addNew(){
-    	
-    	// Create new category object
-    	$model = new Category();
+        
+        // Create new category object
+        $model = new Category();
         $cateList = Category::all();
 
-    	// return form with empty model
-    	return view("admin.category.form", ["model" => $model, "cateList" => $cateList]);
+        // return form with empty model
+        return view("admin.category.form", ["model" => $model, "cateList" => $cateList]);
+    }
+
+    /**
+	* Generate save  category
+	* @author: ThienTH
+	* @date: 2017/03/24
+	* @return: redirect
+	*/
+    public function store(Request $request){
+    	dd($request->all());
+    	
     }
 }
