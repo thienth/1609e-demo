@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -39,13 +40,41 @@ class CategoryController extends Controller
     }
 
     /**
+    * Generate update cate form
+    * @author: ThienTH
+    * @date: 2017/03/24
+    * @return: view
+    */
+    public function update($id){
+        // Neu id co thuc
+        $model = Category::find($id);
+        if($model){
+           
+            $cateList = Category::all();
+            // return form with empty model
+            return view("admin.category.form", 
+                ["model" => $model, "cateList" => $cateList]);
+        }
+
+        return "Not found!";
+        
+    }
+
+    /**
 	* Generate save  category
 	* @author: ThienTH
 	* @date: 2017/03/24
 	* @return: redirect
 	*/
     public function store(Request $request){
-    	$model = new Category();
+
+        if($request->input('id')){
+
+            $model = Category::find($request->input('id'));
+        }else{
+
+            $model = new Category();
+        }
         $model->fill($request->all());
         if ($request->hasFile('imageFile')) {
             $file = $request->file('imageFile');
@@ -54,11 +83,24 @@ class CategoryController extends Controller
             $model->feature_image = "/" . $path;
 
         }
-        $model->save();
-        
-        return redirect(route("admin.cate.list"));
-        // dd($model->save());
 
-    	
+        DB::beginTransaction();
+
+        try{
+
+            if($model->save()){
+
+                DB::commit();
+                return redirect(route("admin.cate.list"));
+            }
+
+            return "error!";
+
+        }catch (\Exception $e){
+            DB::rollback();
+
+            dd($e->getMessage());
+        }
+
     }
 }
