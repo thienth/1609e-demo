@@ -1,7 +1,8 @@
 <?php 
-if(!function_exists("thienth_helper")){
-	function thienth_helper(){
-		echo "thienth helper";
+if(!function_exists("uniqueString")){
+	function uniqueString($customText = null){
+		$customText = str_replace(" ", "-", $customText);
+		return $customText . "-" . uniqid();
 	}
 }
 

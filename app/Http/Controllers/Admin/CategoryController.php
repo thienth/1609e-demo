@@ -45,7 +45,20 @@ class CategoryController extends Controller
 	* @return: redirect
 	*/
     public function store(Request $request){
-    	dd($request->all());
+    	$model = new Category();
+        $model->fill($request->all());
+        if ($request->hasFile('imageFile')) {
+            $file = $request->file('imageFile');
+            $fileName = uniqueString($request->input('cate_name')) . "." . $file->extension();
+            $path = $file->storeAs('uploads', $fileName);
+            $model->feature_image = "/" . $path;
+
+        }
+        $model->save();
+        
+        return redirect(route("admin.cate.list"));
+        // dd($model->save());
+
     	
     }
 }

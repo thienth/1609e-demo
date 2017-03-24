@@ -36,7 +36,7 @@
 	                  <td>{{$cate->id}}</td>
 	                  <td>{{$cate->cate_name}}</td>
 	                  <td>{{$cate->parent_id}}</td>
-	                  <td><img src="{{$cate->feature_image}}" alt=""></td>
+	                  <td><img width="50px" src="{{$cate->feature_image}}" alt=""></td>
 	                  <td>
 	                  	<a href="javascript:;" class="btn btn-sm btn-info">Update</a>
 	                  	<a href="javascript:;" class="btn btn-sm btn-danger">Remove</a>
