@@ -32,14 +32,15 @@
 	            </thead>
 	            <tbody>
 		            @foreach($cateList as $cate)
-				         <tr>
+				         <tr id="cate-{{$cate->id}}">
 	                  <td>{{$cate->id}}</td>
 	                  <td>{{$cate->cate_name}}</td>
 	                  <td>{{$cate->getParentName()}}</td>
 	                  <td><img width="50px" src="{{$cate->feature_image}}" alt=""></td>
 	                  <td>
 	                  	<a href="{{route("admin.cate.update", ['id' => $cate->id])}}" class="btn btn-sm btn-info">Update</a>
-	                  	<a href="javascript:;" class="btn btn-sm btn-danger">Remove</a>
+	                  	<a href="javascript:;" 
+                          class="btn btn-sm btn-danger cate-remove" remove-id="{{$cate->id}}">Remove</a>
 	                  </td>
 	                </tr>
 		            @endforeach
@@ -53,9 +54,15 @@
       <!-- /.box -->
     </div>
   </div>
+  <input type="hidden" value="{{ route('admin.cate.remove') }}" id="remove-cate-url">
 @endsection
 @section('page-js')
   <script type="text/javascript" src="{{ asset('admin/js/category/index.js') }}"></script>
+  <script>
+    $(document).ready(function(){
+      categoryIndex.init();
+    });
+  </script>
 @endsection
 
 

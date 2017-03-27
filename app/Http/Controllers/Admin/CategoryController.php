@@ -61,6 +61,25 @@ class CategoryController extends Controller
     }
 
     /**
+    * remove category by id
+    * @author: ThienTH
+    * @date: 2017/03/27
+    * @return: view
+    */
+    public function remove(Request $request){
+        // Neu id co thuc
+        $model = Category::find($request->input("id"));
+        if($model){
+           
+            $remove = $model->delete();
+            return response()->json(["data" => $remove]);
+        }
+
+        return response()->json(["data" => false]);
+        
+    }
+
+    /**
 	* Generate save  category
 	* @author: ThienTH
 	* @date: 2017/03/24
