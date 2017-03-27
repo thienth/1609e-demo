@@ -54,3 +54,9 @@
     </div>
   </div>
 @endsection
+@section('page-js')
+  <script type="text/javascript" src="{{ asset('admin/js/category/index.js') }}"></script>
+@endsection
+
+
+
