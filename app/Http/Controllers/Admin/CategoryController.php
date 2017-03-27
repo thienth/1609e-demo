@@ -17,7 +17,7 @@ class CategoryController extends Controller
 	*/
     public function index(){
     	// Get all category
-    	$cateList = Category::all();
+    	$cateList = Category::paginate(APP_PAGE_SIZE);
 
     	// Return view with data
     	return view("admin.category.index", ["cateList" => $cateList]);

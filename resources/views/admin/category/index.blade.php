@@ -44,6 +44,12 @@
 	                  </td>
 	                </tr>
 		            @endforeach
+                <tr>
+                  <td colspan="5" class="text-center">
+                    {{$cateList->links()}}
+                  </td>
+                </tr>
+                
 	          	</tbody>
           	</table>
         	@endif
