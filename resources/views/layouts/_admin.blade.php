@@ -516,6 +516,7 @@
 	<script src="{{asset('plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
 	<!-- FastClick -->
 	<script src="{{asset('plugins/fastclick/fastclick.js')}}"></script>
+	<script src="{{asset('plugins/bootbox/bootbox.min.js')}}"></script>
 	<!-- AdminLTE App -->
 	<script src="{{asset('adminlte/js/app.min.js')}}"></script>
 	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
