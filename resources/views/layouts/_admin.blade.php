@@ -30,6 +30,7 @@
 	<link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}}">
 	<!-- bootstrap wysihtml5 - text editor -->
 	<link rel="stylesheet" href="{{asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+	<link rel="stylesheet" href="{{asset('admin/css/custom.css')}}">
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -479,6 +480,10 @@
 	       immediately after the control sidebar -->
 	  <div class="control-sidebar-bg"></div>
 	</div>
+	<div class="overlay">
+		<i class="fa fa-refresh fa-spin fa-5x"></i>
+	</div>
+
 	<!-- ./wrapper -->
 	<!-- jQuery 2.2.3 -->
 	<script src="{{asset('plugins/jQuery/jquery-2.2.3.min.js')}}"></script>

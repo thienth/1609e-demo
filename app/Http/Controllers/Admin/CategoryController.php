@@ -70,7 +70,7 @@ class CategoryController extends Controller
         // Neu id co thuc
         $model = Category::find($request->input("id"));
         if($model){
-           
+            // sleep(5);
             $remove = $model->delete();
             return response()->json(["data" => $remove]);
         }

@@ -8,8 +8,7 @@ window.categoryIndex = {
 				dataType: "JSON",
 				method: "DELETE",
 				beforeSend: function(){
-
-					console.log("beforeSend");
+					$(".overlay").addClass("active");
 				},
 				success: function(response){
 					if(response.data == true){
@@ -17,7 +16,7 @@ window.categoryIndex = {
 					}
 				},
 				complete: function(){
-					console.log("complete");
+					$(".overlay.active").removeClass("active");
 				},
 				error: function(err){
 					console.log(err);
