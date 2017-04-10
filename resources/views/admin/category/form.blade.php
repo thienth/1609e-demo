@@ -1,10 +1,16 @@
 @extends("layouts._admin")
 @section('content')
-<div class="row">
-  
+  @if(count($errors) > 0 )
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+                {{ $error }}<br>        
+            @endforeach
+        </div>
+        @endif
   <div class="box box-info">
     <!-- form start -->
     <form class="form-horizontal" method="post" action="{{route('admin.cate.store')}}" enctype="multipart/form-data">
+      {{csrf_field()}}
       <input type="hidden" name="id" value="{{$model->id}}" />
       <div class="box-body row">
         <div class="col-md-8 col-md-offset-2">

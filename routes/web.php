@@ -16,4 +16,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', "Client\\HomeController@login")->name("login");
+Route::get('/login', "Auth\\LoginController@login")->name("login");
+Route::post('/login', "Auth\\LoginController@postLogin");

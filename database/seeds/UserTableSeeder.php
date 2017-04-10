@@ -12,8 +12,8 @@ class UserTableSeeder extends Seeder
     {
     	
         $users = [
-        	["username" => "admin", "email" => "admin@gmail.com", "password_hash" => Hash::make("123456")],
-        	["username" => "mod", "email" => "mod@gmail.com", "password_hash" => Hash::make("123456")],
+        	["username" => "admin", "email" => "admin@gmail.com", "password" => Hash::make("123456")],
+        	["username" => "mod", "email" => "mod@gmail.com", "password" => Hash::make("123456")],
         ];
         foreach ($users as $value) {
         	DB::table('users')->insert($value);

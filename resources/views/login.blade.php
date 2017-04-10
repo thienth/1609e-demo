@@ -33,15 +33,24 @@
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
-    <form action="../../index2.html" method="post">
+    <form action="{{route('login')}}" method="post">
+      {{ csrf_field() }}
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="text" class="form-control" 
+        name="username" placeholder="User name">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" name="password" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
+      @if(isset($msg))
+      <div class="row">
+        <div class="col-xs-12">
+          <span class="text-danger">{{$msg}}</span>
+        </div>
+      </div>
+      @endif
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">

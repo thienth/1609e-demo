@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Support\Facades\DB;
+use Validator;
 
 class CategoryController extends Controller
 {
@@ -86,6 +87,16 @@ class CategoryController extends Controller
 	* @return: redirect
 	*/
     public function store(Request $request){
+        $validator = Validator::make($request->all(), [
+            'cate_name' => 'required|min:5',
+        ]);
+
+        if ($validator->fails()) {
+            // $messages = $validator->messages();
+            // var_dump($messages);die;
+            return redirect(route('admin.cate.add'))
+                        ->withErrors($validator);
+        }
 
         if($request->input('id')){
 
