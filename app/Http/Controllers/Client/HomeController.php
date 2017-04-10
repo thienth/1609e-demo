@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-    public function index(){
-    	echo "HomeController -> index()";
+    public function login(){
+    	return view("login");
     }
 }

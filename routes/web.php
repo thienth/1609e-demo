@@ -16,4 +16,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/1609', "Client\\HomeController@index");
+Route::get('/login', "Client\\HomeController@login")->name("login");
