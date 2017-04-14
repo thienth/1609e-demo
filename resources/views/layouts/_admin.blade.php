@@ -238,13 +238,31 @@
 	            	<a href="{{route("admin.cate.list")}}"><i class="fa fa-list"></i> List categories</a>
             	</li>
 	            <li>
-	            	<a href="{{Asset("dashboard/new-cate")}}"><i class="fa fa-plus"></i> Add new</a>
+	            	<a href="{{route("admin.cate.add")}}"><i class="fa fa-plus"></i> Add new</a>
             	</li>
             	<li>
 	            	<a href="{{Asset("dashboard/category-sort")}}"><i class="fa fa-list-ol"></i> Sort order</a>
             	</li>
 	          </ul>
 	        </li>
+	        <!-- post -->
+	        <li class="treeview">
+	          <a href="javascript:;">
+	            <i class="fa fa-file-word-o"></i> <span>Posts</span>
+	            <span class="pull-right-container">
+	              <i class="fa fa-angle-left pull-right"></i>
+	            </span>
+	          </a>
+	          <ul class="treeview-menu">
+	            <li>
+	            	<a href="{{route("admin.cate.list")}}"><i class="fa fa-list"></i> List post</a>
+            	</li>
+	            <li>
+	            	<a href="{{route("admin.post.add")}}"><i class="fa fa-plus"></i> Add new</a>
+            	</li>
+	          </ul>
+	        </li>
+	        <!-- end post -->
 	      </ul>
 	    </section>
 	    <!-- /.sidebar -->
