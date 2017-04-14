@@ -1,5 +1,6 @@
 @extends("layouts._admin")
 @section('content')
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <div class="row">
     <div class="col-xs-12">
       <div class="box">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -26,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = "/admin/index";
 
     /**
      * Create a new controller instance.
@@ -57,11 +58,21 @@ class LoginController extends Controller
     public function postLogin(Request $request){
         // Laravel auth library to check user infor
         if (Auth::attempt(['username' => $request->input('username'), 'password' => $request->input('password')])) {
-            // dd(Auth::user()->id);
             // Authentication passed...
             return redirect()->intended(route('admin.dashboard'));
         }else{
             return view("login", ["msg" => 'wrong username/password']);
         }
+    }
+
+    /**
+    *   check username/password login
+    * @auth ThienTh
+    * @date 2017-04-10
+    * @return view/redirect
+    */
+    public function logout(Request $request){
+        Auth::logout();
+        return redirect(route('homepage'));     
     }
 }

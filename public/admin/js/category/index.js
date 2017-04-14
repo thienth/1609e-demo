@@ -7,17 +7,20 @@ window.categoryIndex = {
 			    message: "Ban co thuc su muon xoa?",
 			    buttons: {
 			        confirm: {
-			            label: 'Có - cậu thích xoá',
+			            label: 'Đồng ý',
 			            className: 'btn-success'
 			        },
 			        cancel: {
-			            label: 'Không - xoá làm gì!',
+			            label: 'Huỷ',
 			            className: 'btn-danger'
 			        }
 			    },
 			    callback: function (result) {
 			    	if(result == true){
 			    		$.ajax({
+			    			headers: {
+						        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+						    },
 							url: categoryIndex.removeCateUrl,
 							data: {id: id},
 							dataType: "JSON",
